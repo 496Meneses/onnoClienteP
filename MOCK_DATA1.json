@@ -1,0 +1,95 @@
+{
+  "clientes": [
+    {
+      "id": "a1824412-3477-4bea-8e1a-19dd8293332a",
+      "nombre": "Carlos",
+      "apellidos": "Picapiedra",
+      "identificacion": "756321"
+    },
+    {
+      "nombre": "Camilo",
+      "apellidos": "Ortiz",
+      "identificacion": "123423222",
+      "id": "N8kKol7"
+    }
+  ],
+  "cuentas_cobro": [],
+  "productos": [
+    {
+      "id": "0cb05810-8fbf-422e-8812-dfae728bc20a",
+      "precio": 146472,
+      "producto": "GEOFORM",
+      "descripcion": "apple"
+    },
+    {
+      "id": "192b7b00-fbf9-4fbf-8b06-3d8850296905",
+      "precio": 283675,
+      "producto": "GUSHKOOL",
+      "descripcion": "strawberry"
+    },
+    {
+      "id": "e1f47511-06ab-4998-bbc2-fab7fc4dad4a",
+      "precio": 260295,
+      "producto": "ECLIPSENT",
+      "descripcion": "strawberry"
+    },
+    {
+      "id": "734088c6-f0cf-4f30-a487-2737cda43f61",
+      "precio": 255412,
+      "producto": "COMVEYER",
+      "descripcion": "banana"
+    },
+    {
+      "id": "9cee3424-62fb-449f-9e11-97c08c03da5c",
+      "precio": 392879,
+      "producto": "VIRXO",
+      "descripcion": "strawberry"
+    },
+    {
+      "id": "7e3f4886-4fbf-410c-b73f-05a7bd16cd8f",
+      "precio": 132384,
+      "producto": "LIQUICOM",
+      "descripcion": "banana"
+    },
+    {
+      "id": "a1207f8e-dc98-4ac4-aaec-5bc6db95a3e6",
+      "precio": 196922,
+      "producto": "ARTWORLDS",
+      "descripcion": "banana"
+    },
+    {
+      "id": "0669f6f3-dd25-41e0-a754-245aba12f301",
+      "precio": 128994,
+      "producto": "TRASOLA",
+      "descripcion": "strawberry"
+    },
+    {
+      "id": "11101c63-c8cf-4ea1-a228-5035a21a5067",
+      "precio": 247128,
+      "producto": "CRUSTATIA",
+      "descripcion": "strawberry"
+    },
+    {
+      "id": "487476e8-558e-42a0-b3e9-e8b22725d9e9",
+      "precio": 385479,
+      "producto": "ZYTREK",
+      "descripcion": "strawberry"
+    }
+  ],
+  "usuarios": [
+    {
+      "id": "14c20482-a0ab-4ba8-a923-a709f0c510b7",
+      "login": "admin",
+      "password": "123456",
+      "isAdmin": true,
+      "fullname": "Administrador"
+    },
+    {
+      "id": "bc148db1-e2e6-4b29-96f1-9c70331d2c34",
+      "login": "user",
+      "password": "123456",
+      "isAdmin": false,
+      "fullname": "Singlge User"
+    }
+  ]
+}
