@@ -44,13 +44,18 @@
             <div class="p-inputgroup w-full">
                 <span class="p-inputgroup-addon"><em class="pi pi-id-card"></em></span>
                 <div class="p-float-label">
-                    <input type="text" class="w-full" pInputText formControlName="identificacion">
+                    <input type="text" class="w-full" pInputText formControlName="identificacion" (blur)="validarIdentificacion()">
                     <label>Identificación</label>
                 </div>
             </div>
-            <div *ngIf="this.identificacionControl.invalid && (this.identificacionControl.touched || this.identificacionControl.dirty)" class="p-error block">
+            <div *ngIf="this.identificacionControl.hasError('required') && (this.identificacionControl.touched || this.identificacionControl.dirty)" class="p-error block">
                 <small>
                     El campo es requerido
+                </small>
+            </div>
+            <div *ngIf="this.identificacionControl.hasError('pattern') && (this.identificacionControl.touched || this.identificacionControl.dirty)" class="p-error block">
+                <small>
+                    Solo se permiten numeros enteros
                 </small>
             </div>
             

@@ -28,7 +28,7 @@ export class AgregarComponent implements OnInit {
     this.formulario = new FormGroup({
       nombres: new FormControl('',[Validators.required]),
       apellidos: new FormControl('',[Validators.required]),
-      identificacion: new FormControl('',[Validators.required])
+      identificacion: new FormControl('',[Validators.required,Validators.pattern("^[0-9]+")])
     })
   }
 
@@ -67,6 +67,16 @@ export class AgregarComponent implements OnInit {
 
     }
     
+  }
+
+  validarIdentificacion(){
+    this.clienteService.obtenerClientes().subscribe( clientes => {
+      let filterClientes = clientes.filter( cliente => cliente.identificacion == this.identificacionControl.value)
+      if(filterClientes.length > 0){
+        alert("Existe usuario con identificacion ")
+        this.identificacionControl.reset()
+      }
+    })
   }
 
   valoresInicialesFormulario(){
