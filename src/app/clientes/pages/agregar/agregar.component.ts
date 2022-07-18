@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ClienteService } from '../../services/cliente.service';
 import { ClienteDTO } from '../../../interfaces/clienteDTO';
 import { ActivatedRoute } from '@angular/router';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-agregar',
@@ -11,12 +12,12 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class AgregarComponent implements OnInit {
 
-  formulario! : FormGroup;
+  formulario!: FormGroup;
 
-  
+
   banderaEstaEditando = false
   clienteEditar: ClienteDTO | undefined
-  constructor(private clienteService: ClienteService, private router: ActivatedRoute) { }
+  constructor(private clienteService: ClienteService, private router: ActivatedRoute, private messageService: MessageService) { }
 
   ngOnInit(): void {
     this.inicializarFormulario()
@@ -24,67 +25,81 @@ export class AgregarComponent implements OnInit {
 
   }
 
-  inicializarFormulario(){
+  inicializarFormulario() {
     this.formulario = new FormGroup({
-      nombres: new FormControl('',[Validators.required]),
-      apellidos: new FormControl('',[Validators.required]),
-      identificacion: new FormControl('',[Validators.required,Validators.pattern("^[0-9]+")])
+      nombres: new FormControl('', [Validators.required]),
+      apellidos: new FormControl('', [Validators.required]),
+      identificacion: new FormControl('', [Validators.required, Validators.pattern("^[0-9]+")])
     })
   }
 
-  agregarCliente(){
+  agregarCliente() {
     let clienteNuevo = {
       nombre: this.nombresControl.value,
       apellidos: this.apellidosControl.value,
       identificacion: this.identificacionControl.value
     } as ClienteDTO
     this.clienteService.agregarCliente(clienteNuevo).subscribe(r => {
-      console.log(r)
+      this.messageService.add({
+        severity: 'success',
+        detail: 'Agregado con exito!',
+        summary: 'Agregar Cliente'
+      })
       this.formulario.reset()
-    })
-  }
-  
-  editarCliente(){
-    this.clienteEditar!.nombre = this.nombresControl.value
-    this.clienteEditar!.apellidos = this.apellidosControl.value
-    this.clienteEditar!.identificacion = this.identificacionControl.value
-    this.clienteService.editarCliente(this.clienteEditar!).subscribe( respuesta => {
-      console.log("cliente Editar")
+    }, err => {
+      this.messageService.add({
+        severity: 'error',
+        detail: 'Ups! Algo anda mal',
+        summary: 'Agregar Cliente'
+      })
     })
   }
 
-  obtenerClienteAEditar(){
+  editarCliente() {
+    this.clienteEditar!.nombre = this.nombresControl.value
+    this.clienteEditar!.apellidos = this.apellidosControl.value
+    this.clienteEditar!.identificacion = this.identificacionControl.value
+    this.clienteService.editarCliente(this.clienteEditar!).subscribe(() => {
+      this.messageService.add({
+        severity: 'success',
+        detail: 'Cliente actualizado',
+        summary: 'Editar cliente'
+      })
+    })
+  }
+
+  obtenerClienteAEditar() {
     let url = document.location.href
     let id = url.split('/')[5]
-    if(id){
-      this.clienteService.obtenerClientePorId(id).subscribe( cliente => {
+    if (id) {
+      this.clienteService.obtenerClientePorId(id).subscribe(cliente => {
         this.clienteEditar = cliente
         this.valoresInicialesFormulario()
       })
       this.banderaEstaEditando = true
-    }else{
+    } else {
       this.banderaEstaEditando = false
 
     }
-    
+
   }
 
-  validarIdentificacion(){
-    this.clienteService.obtenerClientes().subscribe( clientes => {
-      let filterClientes = clientes.filter( cliente => cliente.identificacion == this.identificacionControl.value)
-      if(filterClientes.length > 0){
+  validarIdentificacion() {
+    this.clienteService.obtenerClientes().subscribe(clientes => {
+      let filterClientes = clientes.filter(cliente => cliente.identificacion == this.identificacionControl.value)
+      if (filterClientes.length > 0) {
         alert("Existe usuario con identificacion ")
         this.identificacionControl.reset()
       }
     })
   }
 
-  valoresInicialesFormulario(){
+  valoresInicialesFormulario() {
     this.nombresControl.setValue(this.clienteEditar?.nombre)
     this.apellidosControl.setValue(this.clienteEditar?.apellidos)
     this.identificacionControl.setValue(this.clienteEditar?.identificacion)
   }
-  
+
 
   //GETTERS formcontrol
   get nombresControl(): FormControl {

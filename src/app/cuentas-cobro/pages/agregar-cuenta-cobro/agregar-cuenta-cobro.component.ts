@@ -1,9 +1,10 @@
-import { Component, Input, OnChanges, OnInit, SimpleChange } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChange } from '@angular/core';
 import { ApiUrl, Estados } from '../../../shared/enums';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { CuentaCobroDTO } from '../../../interfaces/cuentaCobroDTO';
 import { ProductoDTO } from '../../../interfaces/productoDTO';
 import { CuentasCobroService } from '../../services/cuentas-cobro.service';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-agregar-cuenta-cobro',
@@ -14,6 +15,7 @@ export class AgregarCuentaCobroComponent implements OnInit{
 
   @Input() clienteIdSeleccionado = ''
   @Input () cuentaCobroEditar!: CuentaCobroDTO;
+  @Output() actualizarCuentaCobro = new EventEmitter<CuentaCobroDTO>();
   estados: string[] = [Estados.anulado,Estados.pagado,Estados.pendiente]
   formulario!: FormGroup;
   banderaEstaEditando: boolean = false
@@ -21,7 +23,7 @@ export class AgregarCuentaCobroComponent implements OnInit{
 
   productos: ProductoDTO[] = []
 
-  constructor(private cuentasCobroService: CuentasCobroService) {
+  constructor(private cuentasCobroService: CuentasCobroService, private messageService: MessageService) {
   
   }
 
@@ -29,7 +31,6 @@ export class AgregarCuentaCobroComponent implements OnInit{
     this.obtenerProductos()
     this.inicializarFormulario()
     if(this.cuentaCobroEditar){
-      console.log("LLEGO")
       this.banderaEstaEditando = true
       this.inicializarItemsDelFormulario()
     }
@@ -51,7 +52,7 @@ export class AgregarCuentaCobroComponent implements OnInit{
   }
   inicializarFormulario(){
     this.formulario = new FormGroup({
-      numero: new FormControl('',[Validators.required,Validators.pattern("^[0-9]+")]),
+      numero: new FormControl('',[Validators.required,Validators.pattern("^(FA|CB)[0-9]{6}$")]),
       estado: new FormControl('',[Validators.required]),
       descripcion: new FormControl(''),
       productos: new FormControl('',[Validators.required]),
@@ -65,11 +66,21 @@ export class AgregarCuentaCobroComponent implements OnInit{
     this.cuentaCobroEditar.productos = this.productosControl.value
     this.cuentaCobroEditar.valorTotal = this.calcularValorTotalProductos()
     this.cuentasCobroService.editarCuentaCobro(this.cuentaCobroEditar).subscribe( r => {
-      alert("Cuenta Cobro Editada")
+      this.messageService.add({
+        severity: 'success',
+        detail: 'Editada correctamente',
+        summary: 'Cuenta de cobro'
+      })
+    }, () => {
+      this.messageService.add({
+        severity: 'error',
+        detail: 'Ups! Algo anda mal',
+        summary: 'Cuenta de cobro'
+      })
     })
   }
   agregarCuentaCobro(){
-    let CuentaCobroNueva = {
+    let cuentaCobroNueva = {
       clienteId: this.clienteIdSeleccionado,
       descripcion: this.descripcionControl.value,
       estado: this.estadoControl.value,
@@ -78,9 +89,20 @@ export class AgregarCuentaCobroComponent implements OnInit{
       valorTotal: this.calcularValorTotalProductos()
 
     } as CuentaCobroDTO
-    this.cuentasCobroService.agregarCuentaCobro(CuentaCobroNueva).subscribe( r => {
-      alert("Cuenta Cobro creada")
+    this.cuentasCobroService.agregarCuentaCobro(cuentaCobroNueva).subscribe( r => {
+      this.messageService.add({
+        severity: "success",
+        detail: "Creada correctamente!",
+        summary: "Cuenta de cobro"
+      })
+      this.actualizarCuentaCobro.emit(cuentaCobroNueva)
       this.formulario.reset()
+    }, err => {
+      this.messageService.add({
+        severity: "error",
+        detail: "Ups! algo anda mal",
+        summary: "Cuenta de cobro"
+      })
     })
   }
 

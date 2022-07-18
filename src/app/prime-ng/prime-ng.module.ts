@@ -10,6 +10,10 @@ import {DropdownModule} from 'primeng/dropdown';
 import {InputTextareaModule} from 'primeng/inputtextarea';
 import {MultiSelectModule} from 'primeng/multiselect';
 import {DialogModule} from 'primeng/dialog';
+import {ToastModule} from 'primeng/toast';
+import { MessageService } from 'primeng/api';
+import {ConfirmDialogModule} from 'primeng/confirmdialog';
+import {ConfirmationService} from 'primeng/api';
 @NgModule({
   exports: [
     ButtonModule,
@@ -22,7 +26,13 @@ import {DialogModule} from 'primeng/dialog';
     DropdownModule,
     InputTextareaModule,
     MultiSelectModule,
-    DialogModule
+    DialogModule,
+    ToastModule,
+    ConfirmDialogModule,
+  ],
+  providers: [
+    MessageService,
+    ConfirmationService
   ]
 })
 export class PrimeNgModule { }

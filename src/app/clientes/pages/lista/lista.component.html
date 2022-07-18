@@ -1,24 +1,27 @@
-<p-table [value]="listaDeClientes">
+<p-table [value]="listaDeClientes" styleClass="p-datatable-sm p-datatable-gridlines m-5" responsiveLayout="scroll" >
     <ng-template pTemplate="header">
         <tr>
-            <th>Nombre Completo</th>
-            <th>Identificación</th>
-            <th>Cuentas Pendientes</th>
-            <th>Valor total pendiente</th>
-            <th>Acciones</th>
+            <th class="text-center">Nombre Completo</th>
+            <th class="text-center">Identificación</th>
+            <th class="text-center">Cuentas Pendientes</th>
+            <th class="text-center">Valor total pendiente</th>
+            <th class="text-center">Acciones</th>
         </tr>
     </ng-template>
     <ng-template pTemplate="body" let-cliente>
         <tr>
-            <td>{{cliente.nombre}} {{cliente.apellidos}}</td>
-            <td>{{cliente.identificacion}}</td>
-            <td>{{cliente.numeroDeCuentasPendientes}}</td>
-            <td>{{cliente.valorPendiente | number}}</td>
-            <td>
-                <div class="iconos">
-                    <em class="pi pi-plus" (click)="agregarCuentaCobro(cliente.id)"></em>
-                    <em class="pi pi-pencil" [routerLink]="['/clientes/editar', cliente.id]"></em>
-                    <em class="pi pi-trash" (click)="eliminarCliente(cliente)"></em>
+            <td class="text-center">{{cliente.nombre}} {{cliente.apellidos}}</td>
+            <td class="text-center">{{cliente.identificacion}}</td>
+            <td class="text-center">{{cliente.numeroDeCuentasPendientes}}</td>
+            <td class="text-center">{{cliente.valorPendiente | number}}</td>
+            <td class="text-center">
+                <div>
+                    <button pButton pRipple type="button" icon="pi pi-plus" class="p-button-rounded p-button-text"
+                    (click)="agregarCuentaCobro(cliente.id)" style="color:rgb(44, 218, 0);"></button>
+                    <button pButton pRipple type="button" icon="pi pi-pencil" class="p-button-rounded p-button-text"
+                    [routerLink]="['/clientes/editar', cliente.id]"  style="color:rgb(190, 190, 0);"></button>
+                    <button pButton pRipple type="button" icon="pi pi-trash" class="p-button-rounded p-button-text" style="color:red;"
+                    (click)="eliminarCliente(cliente)"></button>
                 </div>
             </td>
         </tr>
@@ -26,6 +29,6 @@
 </p-table>
 
 
-<p-dialog header="Cuenta Cobro" [(visible)]="mostrarCuentaCobro">
-    <app-agregar-cuenta-cobro [clienteIdSeleccionado]="this.idSeleccionado"></app-agregar-cuenta-cobro>
+<p-dialog header="Cuenta Cobro" [(visible)]="mostrarCuentaCobro" [modal]="true">
+    <app-agregar-cuenta-cobro (actualizarCuentaCobro) = "actualizarListaCuentaCobro()" [clienteIdSeleccionado]="this.idSeleccionado"></app-agregar-cuenta-cobro>
 </p-dialog>

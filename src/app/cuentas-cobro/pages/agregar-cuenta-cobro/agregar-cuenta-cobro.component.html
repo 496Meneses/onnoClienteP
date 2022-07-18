@@ -1,5 +1,5 @@
 
-<form class="formgrid grid mt-4" [formGroup]="this.formulario">
+<form class="formgrid grid" [formGroup]="this.formulario">
     <div class="field col-12" *ngIf="this.banderaEstaEditando">
         <div class="p-inputgroup w-full mb-5">
             <span class="p-inputgroup-addon"><em class="pi pi-code"></em></span>
@@ -17,12 +17,18 @@
                 <label>Número</label>
             </div>
         </div>
-        <div *ngIf="this.numeroControl.invalid && (this.numeroControl.touched || this.numeroControl.dirty)"
+        <div *ngIf="this.numeroControl.hasError('required') && (this.numeroControl.touched || this.numeroControl.dirty)"
             class="p-error block">
             <small>
                 El campo es requerido
             </small>
         </div>
+        <div *ngIf="this.numeroControl.hasError('pattern') && (this.numeroControl.touched || this.numeroControl.dirty)"
+        class="p-error block">
+        <small>
+            No coincide con el patrón establecido
+        </small>
+    </div>
 
     </div>
     <div class="field col-12 md:col-4">

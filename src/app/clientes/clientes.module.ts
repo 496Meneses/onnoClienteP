@@ -12,6 +12,7 @@ import { DialogService } from 'primeng/dynamicdialog';
 import {DialogModule} from 'primeng/dialog';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CuentasCobroModule } from '../cuentas-cobro/cuentas-cobro.module';
+import { MessageService } from 'primeng/api';
 @NgModule({
   declarations: [
     AgregarComponent,
@@ -26,11 +27,12 @@ import { CuentasCobroModule } from '../cuentas-cobro/cuentas-cobro.module';
     HttpClientModule,
     ReactiveFormsModule,
     CuentasCobroModule,
-    DialogModule
+    DialogModule,
   ],
   providers: [
     ClienteService,
-    DialogService
+    DialogService,
+    MessageService
   ]
 })
 export class ClientesModule { }
