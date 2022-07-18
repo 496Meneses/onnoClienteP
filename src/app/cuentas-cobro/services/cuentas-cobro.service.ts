@@ -32,4 +32,8 @@ export class CuentasCobroService {
     let url = BACKEND_URL.concat(ApiUrl.cuentasCobro).concat("/",cuenta.id)
     return this.http.delete<any>(url,httpOptions)
   }
+  editarCuentaCobro(cuenta: CuentaCobroDTO){
+    let url = BACKEND_URL.concat(ApiUrl.cuentasCobro).concat("/", cuenta.id)
+    return this.http.put<any>(url,cuenta,httpOptions)
+  }
 }

@@ -15,50 +15,6 @@
   ],
   "cuentas_cobro": [
     {
-      "clienteId": "a1824412-3477-4bea-8e1a-19dd8293332e",
-      "descripcion": "4123",
-      "estado": "Pagado",
-      "numero": "3",
-      "productos": [
-        {
-          "id": "0cb05810-8fbf-422e-8812-dfae728bc20a",
-          "precio": 146472,
-          "producto": "GEOFORM",
-          "descripcion": "apple"
-        },
-        {
-          "id": "192b7b00-fbf9-4fbf-8b06-3d8850296905",
-          "precio": 283675,
-          "producto": "GUSHKOOL",
-          "descripcion": "strawberry"
-        }
-      ],
-      "valorTotal": 430147,
-      "id": "_Nbt-RD"
-    },
-    {
-      "clienteId": "a1824412-3477-4bea-8e1a-19dd8293332e",
-      "descripcion": "41232",
-      "estado": "Pendiente",
-      "numero": "5",
-      "productos": [
-        {
-          "id": "e1f47511-06ab-4998-bbc2-fab7fc4dad4a",
-          "precio": 260295,
-          "producto": "ECLIPSENT",
-          "descripcion": "strawberry"
-        },
-        {
-          "id": "734088c6-f0cf-4f30-a487-2737cda43f61",
-          "precio": 255412,
-          "producto": "COMVEYER",
-          "descripcion": "banana"
-        }
-      ],
-      "valorTotal": 515707,
-      "id": "F-Xt0I8"
-    },
-    {
       "clienteId": "7837f1aa-3a5d-4864-a647-3359a1b9fb5d",
       "descripcion": "Esta es mi cuenta de cobro",
       "estado": "Pendiente",
@@ -101,6 +57,28 @@
       ],
       "valorTotal": 430147,
       "id": "biHfvrH"
+    },
+    {
+      "clienteId": "a1824412-3477-4bea-8e1a-19dd8293332e",
+      "descripcion": "1",
+      "estado": "Pendiente",
+      "numero": "1",
+      "productos": [
+        {
+          "id": "0cb05810-8fbf-422e-8812-dfae728bc20a",
+          "precio": 146472,
+          "producto": "GEOFORM",
+          "descripcion": "apple"
+        },
+        {
+          "id": "192b7b00-fbf9-4fbf-8b06-3d8850296905",
+          "precio": 283675,
+          "producto": "GUSHKOOL",
+          "descripcion": "strawberry"
+        }
+      ],
+      "valorTotal": 430147,
+      "id": "Elr5N19"
     }
   ],
   "productos": [

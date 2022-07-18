@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChange } from '@angular/core';
 import { ApiUrl, Estados } from '../../../shared/enums';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { CuentaCobroDTO } from '../../../interfaces/cuentaCobroDTO';
@@ -10,14 +10,15 @@ import { CuentasCobroService } from '../../services/cuentas-cobro.service';
   templateUrl: './agregar-cuenta-cobro.component.html',
   styleUrls: ['./agregar-cuenta-cobro.component.css']
 })
-export class AgregarCuentaCobroComponent implements OnInit {
+export class AgregarCuentaCobroComponent implements OnInit{
 
   @Input() clienteIdSeleccionado = ''
+  @Input () cuentaCobroEditar!: CuentaCobroDTO;
   estados: string[] = [Estados.anulado,Estados.pagado,Estados.pendiente]
   formulario!: FormGroup;
   banderaEstaEditando: boolean = false
 
-  cuentaCobroEditar: CuentaCobroDTO | undefined;
+
   productos: ProductoDTO[] = []
 
   constructor(private cuentasCobroService: CuentasCobroService) {
@@ -27,7 +28,20 @@ export class AgregarCuentaCobroComponent implements OnInit {
   ngOnInit(): void {
     this.obtenerProductos()
     this.inicializarFormulario()
+    if(this.cuentaCobroEditar){
+      console.log("LLEGO")
+      this.banderaEstaEditando = true
+      this.inicializarItemsDelFormulario()
+    }
 
+  }
+
+  inicializarItemsDelFormulario(){
+    this.estadoControl.setValue(this.cuentaCobroEditar?.estado)
+    this.numeroControl.setValue(this.cuentaCobroEditar?.numero)
+    this.productosControl.setValue(this.cuentaCobroEditar?.productos)
+    this.valorTotalControl.setValue(this.cuentaCobroEditar?.valorTotal)
+    this.descripcionControl.setValue(this.cuentaCobroEditar?.descripcion)
   }
 
   obtenerProductos(){
@@ -45,7 +59,14 @@ export class AgregarCuentaCobroComponent implements OnInit {
     })
   }
   editarCuentaCobro(){
-
+    this.cuentaCobroEditar.descripcion = this.descripcionControl.value
+    this.cuentaCobroEditar.estado = this.estadoControl.value
+    this.cuentaCobroEditar.numero = this.numeroControl.value
+    this.cuentaCobroEditar.productos = this.productosControl.value
+    this.cuentaCobroEditar.valorTotal = this.calcularValorTotalProductos()
+    this.cuentasCobroService.editarCuentaCobro(this.cuentaCobroEditar).subscribe( r => {
+      alert("Cuenta Cobro Editada")
+    })
   }
   agregarCuentaCobro(){
     let CuentaCobroNueva = {

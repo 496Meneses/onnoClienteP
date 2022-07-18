@@ -11,6 +11,9 @@ export class ListaCuentasComponent implements OnInit {
 
   @Input() idCliente: string= ''
   listaCuentasCobro: CuentaCobroDTO[] = []
+  cuentaCobroSeleccionada: CuentaCobroDTO | undefined
+  //sirve para mostrar el dialogo de la cuenta de cobro
+  mostrarCuentaCobro: boolean = false
   constructor(private cuentasCobroService: CuentasCobroService) { }
 
   ngOnInit(): void {
@@ -23,7 +26,9 @@ export class ListaCuentasComponent implements OnInit {
     })
   }
   editarCuentaCobro(cuenta:CuentaCobroDTO){
-
+    console.log(cuenta)
+    this.cuentaCobroSeleccionada = cuenta
+    this.mostrarCuentaCobro = true
   }
   eliminarCuentaCobro(cuenta:CuentaCobroDTO){
     this.cuentasCobroService.eliminarCuentaCobro(cuenta).subscribe(r => {

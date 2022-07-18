@@ -9,6 +9,7 @@ import {InputTextModule} from 'primeng/inputtext';
 import {DropdownModule} from 'primeng/dropdown';
 import {InputTextareaModule} from 'primeng/inputtextarea';
 import {MultiSelectModule} from 'primeng/multiselect';
+import {DialogModule} from 'primeng/dialog';
 @NgModule({
   exports: [
     ButtonModule,
@@ -20,7 +21,8 @@ import {MultiSelectModule} from 'primeng/multiselect';
     InputTextModule,
     DropdownModule,
     InputTextareaModule,
-    MultiSelectModule
+    MultiSelectModule,
+    DialogModule
   ]
 })
 export class PrimeNgModule { }
