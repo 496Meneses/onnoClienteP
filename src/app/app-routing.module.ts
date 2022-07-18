@@ -9,9 +9,14 @@ const routes: Routes = [
     loadChildren: () => import("./clientes/clientes.module").then( m => m.ClientesModule)
   },
   {
+    path: 'login',
+    loadChildren: () => import("./auth/auth.module").then( m => m.AuthModule)
+  },
+  {
     path: 'error',
     component: ErrorPageComponent
   },
+
   {
     path: '**',
     redirectTo: 'error'

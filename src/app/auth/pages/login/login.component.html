@@ -1,1 +1,28 @@
-<p>login works!</p>
+<div class="flex flex-row justify-content-center align-items-center" style="width: 100vw; height: 100vh;">
+    <div style="width: 30%;">
+        <p-card class="formgrid grid " styleClass="w-full">
+            <p-header>
+                <h3 class="text-center">Iniciar Sesión</h3>
+            </p-header>
+            <div class="field col-12 mb-5">
+                <span class="p-float-label">
+                    <input class="w-full" pInputText type="text">
+                    <label>Nombre de usuario</label>
+                </span>
+                
+            </div>
+            <div class="field col-12 mb-5">
+                <span class="p-float-label">
+                    <input placeholder="Contraseña" class="w-full" pInputText type="text">
+                    <label>Contraseña</label>
+                </span>
+            </div>
+            <div class="flex flex-row justify-content-center">
+                <button pButton (click)="iniciarSesion()">Iniciar Sesión</button>
+            </div>
+    
+        </p-card>
+    </div>
+    
+
+</div>

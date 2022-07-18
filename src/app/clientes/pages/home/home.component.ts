@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ClienteService } from '../../services/cliente.service';
 import { ClienteDTO } from '../../../interfaces/clienteDTO';
+import { MenuItem } from 'primeng/api';
 
 @Component({
   selector: 'app-home',
@@ -10,11 +11,17 @@ import { ClienteDTO } from '../../../interfaces/clienteDTO';
 export class HomeComponent implements OnInit {
 
 
-  constructor() { }
-
+  items: MenuItem[] = [];
   ngOnInit(): void {
-    //obtener clientes
-
+    this.items = [
+      {
+        label: 'Clientes',
+        items: [
+          { label: 'Listar', routerLink: '/clientes/lista' },
+          { label: 'Agregar', routerLink: '/clientes/agregar' },
+        ]
+      },
+    ];
   }
 
 }

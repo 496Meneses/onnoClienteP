@@ -6,18 +6,7 @@ import { MenuItem } from 'primeng/api';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   title = 'onnoCobro';
-  items: MenuItem[] = [];
-  ngOnInit(): void {
-    this.items = [
-      {
-        label: 'Clientes',
-        items: [
-          { label: 'Listar', routerLink: '/clientes/lista' },
-          { label: 'Agregar', routerLink: '/clientes/agregar' },
-        ]
-      },
-    ];
-  }
+
 }
