@@ -1,0 +1,17 @@
+.body {
+  margin:0;
+  padding:0
+}
+.iconos{
+    display: flex;
+    justify-content: start;
+    gap: 10px
+}
+.iconos > em {
+    cursor: pointer;
+}
+/* 
+MODIFICACIONES TEMA */
+.p-datatable.p-datatable-sm .p-datatable-tbody > tr > td{
+    padding: 0px !important;
+}

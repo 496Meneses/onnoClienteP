@@ -1,0 +1,28 @@
+<div class="flex flex-row justify-content-center align-items-center" style="width: 100vw; height: 100vh;">
+    <form class= "login" [formGroup] = "this.formulario">
+        <p-card class="formgrid grid " styleClass="w-full">
+            <p-header>
+                <h3 class="text-center">Iniciar Sesión</h3>
+            </p-header>
+            <div class="field col-12 mb-5">
+                <span class="p-float-label">
+                    <input class="w-full" pInputText type="text" formControlName="username">
+                    <label>Nombre de usuario</label>
+                </span>
+                
+            </div>
+            <div class="field col-12 mb-5">
+                <span class="p-float-label">
+                    <input placeholder="Contraseña" class="w-full" pInputText type="password" formControlName="password">
+                    <label>Contraseña</label>
+                </span>
+            </div>
+            <div class="flex flex-row justify-content-center">
+                <button pButton [disabled]="!this.formulario.valid" (click)="iniciarSesion()">Aceptar</button>
+            </div>
+    
+        </p-card>
+    </form>
+    
+
+</div>

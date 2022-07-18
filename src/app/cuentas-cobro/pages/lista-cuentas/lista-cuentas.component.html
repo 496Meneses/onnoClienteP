@@ -1,0 +1,40 @@
+<h2>Cuentas Cobro Asociadas</h2>
+
+
+<p-table [value]="listaCuentasCobro">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Número</th>
+            <th>Estado</th>
+            <th>Descripción</th>
+            <th>Productos</th>
+            <th>Valor Total</th>
+            <th>Acciones</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-cuenta>
+        <tr>
+            <td>{{cuenta.numero}}</td>
+            <td>{{cuenta.estado}}</td>
+            <td>{{cuenta.descripcion}}</td>
+            <td>
+                <!-- <div *ngFor="let p of cuenta?.productos">{{p.producto}}</div> -->
+            </td>
+            <td>
+                {{cuenta.valorTotal | number}}
+            </td>
+            <td>
+                <div class="iconos">
+                    <button pButton pRipple type="button" icon="pi pi-pencil" class="p-button-rounded p-button-text"
+                    (click) ="editarCuentaCobro(cuenta)"  style="color:rgb(190, 190, 0);"></button>
+                    <button pButton pRipple type="button" icon="pi pi-trash" class="p-button-rounded p-button-text" style="color:red;"
+                    (click) ="eliminarCuentaCobro(cuenta)"></button>
+                </div>
+            </td>
+        </tr>
+    </ng-template>
+</p-table>
+
+<p-dialog header="Cuenta Cobro" [(visible)]="mostrarCuentaCobro" *ngIf="mostrarCuentaCobro">
+    <app-agregar-cuenta-cobro [cuentaCobroEditar]= "this.cuentaCobroSeleccionada!"></app-agregar-cuenta-cobro>
+</p-dialog>
