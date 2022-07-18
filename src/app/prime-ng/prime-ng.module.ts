@@ -6,6 +6,9 @@ import {PanelModule} from 'primeng/panel';
 import {DynamicDialogModule} from 'primeng/dynamicdialog';
 import {CardModule} from 'primeng/card';
 import {InputTextModule} from 'primeng/inputtext';
+import {DropdownModule} from 'primeng/dropdown';
+import {InputTextareaModule} from 'primeng/inputtextarea';
+import {MultiSelectModule} from 'primeng/multiselect';
 @NgModule({
   exports: [
     ButtonModule,
@@ -14,7 +17,10 @@ import {InputTextModule} from 'primeng/inputtext';
     PanelModule,
     DynamicDialogModule,
     CardModule,
-    InputTextModule
+    InputTextModule,
+    DropdownModule,
+    InputTextareaModule,
+    MultiSelectModule
   ]
 })
 export class PrimeNgModule { }

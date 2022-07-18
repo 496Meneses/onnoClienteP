@@ -3,4 +3,6 @@ export interface ClienteDTO{
     nombre: string;
     apellidos: string;
     identificacion: string;
+    valorPendiente: number;
+    numeroDeCuentasPendientes: number;
 }

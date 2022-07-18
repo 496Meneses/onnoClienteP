@@ -9,8 +9,9 @@ import { PrimeNgModule } from '../prime-ng/prime-ng.module';
 import { ClienteService } from './services/cliente.service';
 import { HttpClientModule } from '@angular/common/http';
 import { DialogService } from 'primeng/dynamicdialog';
-
+import {DialogModule} from 'primeng/dialog';
 import { ReactiveFormsModule } from '@angular/forms';
+import { CuentasCobroModule } from '../cuentas-cobro/cuentas-cobro.module';
 @NgModule({
   declarations: [
     AgregarComponent,
@@ -23,7 +24,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     ClientesRoutingModule,
     PrimeNgModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CuentasCobroModule,
+    DialogModule
   ],
   providers: [
     ClienteService,
