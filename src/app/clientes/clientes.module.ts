@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AgregarComponent } from './pages/agregar/agregar.component';
-import { ClienteComponent } from './pages/cliente/cliente.component';
 import { HomeComponent } from './pages/home/home.component';
 import { ListaComponent } from './pages/lista/lista.component';
 import { ClientesRoutingModule } from './clientes-routing.module';
@@ -13,10 +12,10 @@ import {DialogModule} from 'primeng/dialog';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CuentasCobroModule } from '../cuentas-cobro/cuentas-cobro.module';
 import { MessageService } from 'primeng/api';
+import {ToolbarModule} from 'primeng/toolbar';
 @NgModule({
   declarations: [
     AgregarComponent,
-    ClienteComponent,
     HomeComponent,
     ListaComponent
   ],
@@ -28,6 +27,7 @@ import { MessageService } from 'primeng/api';
     ReactiveFormsModule,
     CuentasCobroModule,
     DialogModule,
+    ToolbarModule
   ],
   providers: [
     ClienteService,

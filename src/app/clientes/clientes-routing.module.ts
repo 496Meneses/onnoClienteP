@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import { AgregarComponent } from './pages/agregar/agregar.component';
-import { ClienteComponent } from './pages/cliente/cliente.component';
+
 import { HomeComponent } from './pages/home/home.component';
 import { ListaComponent } from './pages/lista/lista.component';
 
@@ -18,10 +18,6 @@ const routes: Routes = [
       {
         path: 'editar/:id',
         component: AgregarComponent
-      },
-      {
-        path: 'cliente/:id',
-        component: ClienteComponent
       },
       {
         path: 'lista',

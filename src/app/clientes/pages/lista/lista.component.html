@@ -20,7 +20,7 @@
                     (click)="agregarCuentaCobro(cliente.id)" style="color:rgb(44, 218, 0);"></button>
                     <button pButton pRipple type="button" icon="pi pi-pencil" class="p-button-rounded p-button-text"
                     [routerLink]="['/clientes/editar', cliente.id]"  style="color:rgb(190, 190, 0);"></button>
-                    <button pButton pRipple type="button" icon="pi pi-trash" class="p-button-rounded p-button-text" style="color:red;"
+                    <button pButton pRipple type="button" icon="pi pi-trash" [disabled]="!banderaIsAdmin" class="p-button-rounded p-button-text" style="color:red;"
                     (click)="eliminarCliente(cliente)"></button>
                 </div>
             </td>

@@ -2,14 +2,21 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import { ErrorPageComponent } from './shared/error-page/error-page.component';
+import { AuthGuard } from './auth/guards/auth.guard';
 
 const routes: Routes = [
   {
     path: 'clientes',
-    loadChildren: () => import("./clientes/clientes.module").then( m => m.ClientesModule)
+    loadChildren: () => import("./clientes/clientes.module").then( m => m.ClientesModule),
+    canLoad: [AuthGuard],
+    canActivate: [AuthGuard]
   },
   {
     path: 'login',
+    loadChildren: () => import("./auth/auth.module").then( m => m.AuthModule)
+  },
+  {
+    path: '',
     loadChildren: () => import("./auth/auth.module").then( m => m.AuthModule)
   },
   {

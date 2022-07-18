@@ -1,4 +1,14 @@
 <p-toast></p-toast>
-<p-menubar [model]="items"></p-menubar>
+<p-toolbar>
+    <div class="p-toolbar-group-left">
+        <p-menubar [model]="items"></p-menubar>
+    </div>
+    
+    <div class="p-toolbar-group-right">
+        <h4 class="mr-3">{{this.usuario}}</h4>
+        <p-button icon="pi pi-times" styleClass="p-button-danger" (onClick)="cerrarSesion()"></p-button>
+    </div>
+</p-toolbar>
+
 <p-confirmDialog header="Confirmación"  rejectLabel="No" acceptLabel="Si" icon="pi pi-exclamation-triangle"></p-confirmDialog>
 <router-outlet></router-outlet>

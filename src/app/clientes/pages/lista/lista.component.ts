@@ -19,14 +19,17 @@ export class ListaComponent implements OnInit {
   listaDeClientes: ClienteDTO[] = []
   listaDeClientesConCuentasCobro: any[] = []
 
+
   mostrarCuentaCobro: boolean = false
   idSeleccionado: string = ''
+  banderaIsAdmin: boolean= false
   constructor(private clienteService: ClienteService, private confirmationService: ConfirmationService,
     private cuentaCobroService: CuentasCobroService, private messageService: MessageService) { }
 
   ngOnInit(): void {
 
     this.obtenerClientes()
+    this.banderaIsAdmin = localStorage.getItem('isAdmin') === 'true' ? true : false
   }
 
   obtenerClientes() {

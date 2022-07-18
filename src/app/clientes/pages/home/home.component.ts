@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ClienteService } from '../../services/cliente.service';
-import { ClienteDTO } from '../../../interfaces/clienteDTO';
 import { MenuItem } from 'primeng/api';
+import { Router } from '@angular/router';
+import { AuthService } from '../../../auth/services/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -10,8 +10,8 @@ import { MenuItem } from 'primeng/api';
 })
 export class HomeComponent implements OnInit {
 
-
   items: MenuItem[] = [];
+  constructor(private router: Router, private authService: AuthService) { }
   ngOnInit(): void {
     this.items = [
       {
@@ -22,6 +22,14 @@ export class HomeComponent implements OnInit {
         ]
       },
     ];
+  }
+
+  cerrarSesion() {
+    this.router.navigate(['/login'])
+  }
+
+  get usuario(){
+    return localStorage.getItem('fullname')
   }
 
 }

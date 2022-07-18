@@ -3,6 +3,10 @@ import { CommonModule } from '@angular/common';
 import { LoginComponent } from './pages/login/login.component';
 import { PrimeNgModule } from '../prime-ng/prime-ng.module';
 import { AuthRoutingModule } from './auth-routing.module';
+import { HttpClientModule } from '@angular/common/http';
+import { AuthService } from './services/auth.service';
+import { AuthGuard } from './guards/auth.guard';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -13,7 +17,12 @@ import { AuthRoutingModule } from './auth-routing.module';
   imports: [
     CommonModule,
     PrimeNgModule,
-    AuthRoutingModule
+    AuthRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+  ],
+  providers: [
+
   ]
 })
 export class AuthModule { }
