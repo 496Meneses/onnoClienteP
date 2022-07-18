@@ -1,8 +1,0 @@
-.iconos{
-    display: flex;
-    justify-content: start;
-    gap: 10px
-}
-.iconos > em {
-    cursor: pointer;
-}

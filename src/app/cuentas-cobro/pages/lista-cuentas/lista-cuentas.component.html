@@ -1,1 +1,34 @@
-<p>lista-cuentas works!</p>
+<h2>Cuentas Cobro Asociadas</h2>
+
+
+<p-table [value]="listaCuentasCobro">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Número</th>
+            <th>Estado</th>
+            <th>Descripción</th>
+            <th>Productos</th>
+            <th>Valor Total</th>
+            <th>Acciones</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-cuenta>
+        <tr>
+            <td>{{cuenta.numero}}</td>
+            <td>{{cuenta.estado}}</td>
+            <td>{{cuenta.descripcion}}</td>
+            <td>
+                <!-- <div *ngFor="let p of cuenta?.productos">{{p.producto}}</div> -->
+            </td>
+            <td>
+                {{cuenta.valorTotal | number}}
+            </td>
+            <td>
+                <div class="iconos">
+                    <em class="pi pi-pencil" (click) ="editarCuentaCobro(cuenta)"></em>
+                    <em class="pi pi-trash" (click) ="eliminarCuentaCobro(cuenta)"></em>
+                </div>
+            </td>
+        </tr>
+    </ng-template>
+</p-table>

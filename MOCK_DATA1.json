@@ -15,66 +15,6 @@
   ],
   "cuentas_cobro": [
     {
-      "id": "88cb4af9-96c2-4d1d-8e25-41300721c4fb",
-      "numero": "CB020034",
-      "estado": "PENDIENTE",
-      "descripcion": ".",
-      "productos": [
-        {
-          "id": "192b7b00-fbf9-4fbf-8b06-3d8850296905",
-          "precio": 283675,
-          "producto": "GUSHKOOL",
-          "descripcion": "strawberry"
-        },
-        {
-          "id": "9cee3424-62fb-449f-9e11-97c08c03da5c",
-          "precio": 392879,
-          "producto": "VIRXO",
-          "descripcion": "strawberry"
-        }
-      ],
-      "valorTotal": 676554,
-      "clienteId": "a1824412-3477-4bea-8e1a-19dd8293332e"
-    },
-    {
-      "id": "efae8fa7-c6df-41fe-8a6b-cccb8a6bab5c",
-      "numero": "FA001052",
-      "estado": "PAGADO",
-      "descripcion": "",
-      "productos": [
-        {
-          "id": "0cb05810-8fbf-422e-8812-dfae728bc20a",
-          "precio": 146472,
-          "producto": "GEOFORM",
-          "descripcion": "apple"
-        }
-      ],
-      "valorTotal": 146472,
-      "clienteId": "a1824412-3477-4bea-8e1a-19dd8293332e"
-    },
-    {
-      "clienteId": "a1824412-3477-4bea-8e1a-19dd8293332e",
-      "descripcion": "1",
-      "estado": "Pendiente",
-      "numero": "3",
-      "productos": [
-        {
-          "id": "0cb05810-8fbf-422e-8812-dfae728bc20a",
-          "precio": 146472,
-          "producto": "GEOFORM",
-          "descripcion": "apple"
-        },
-        {
-          "id": "192b7b00-fbf9-4fbf-8b06-3d8850296905",
-          "precio": 283675,
-          "producto": "GUSHKOOL",
-          "descripcion": "strawberry"
-        }
-      ],
-      "valorTotal": 430147,
-      "id": "_OMJhpU"
-    },
-    {
       "clienteId": "a1824412-3477-4bea-8e1a-19dd8293332e",
       "descripcion": "4123",
       "estado": "Pagado",
@@ -98,28 +38,6 @@
     },
     {
       "clienteId": "a1824412-3477-4bea-8e1a-19dd8293332e",
-      "descripcion": "41234",
-      "estado": "Pagado",
-      "numero": "4",
-      "productos": [
-        {
-          "id": "e1f47511-06ab-4998-bbc2-fab7fc4dad4a",
-          "precio": 260295,
-          "producto": "ECLIPSENT",
-          "descripcion": "strawberry"
-        },
-        {
-          "id": "192b7b00-fbf9-4fbf-8b06-3d8850296905",
-          "precio": 283675,
-          "producto": "GUSHKOOL",
-          "descripcion": "strawberry"
-        }
-      ],
-      "valorTotal": 543970,
-      "id": "XLwv4oi"
-    },
-    {
-      "clienteId": "a1824412-3477-4bea-8e1a-19dd8293332e",
       "descripcion": "41232",
       "estado": "Pendiente",
       "numero": "5",
@@ -139,6 +57,50 @@
       ],
       "valorTotal": 515707,
       "id": "F-Xt0I8"
+    },
+    {
+      "clienteId": "7837f1aa-3a5d-4864-a647-3359a1b9fb5d",
+      "descripcion": "Esta es mi cuenta de cobro",
+      "estado": "Pendiente",
+      "numero": "1",
+      "productos": [
+        {
+          "id": "0cb05810-8fbf-422e-8812-dfae728bc20a",
+          "precio": 146472,
+          "producto": "GEOFORM",
+          "descripcion": "apple"
+        },
+        {
+          "id": "192b7b00-fbf9-4fbf-8b06-3d8850296905",
+          "precio": 283675,
+          "producto": "GUSHKOOL",
+          "descripcion": "strawberry"
+        }
+      ],
+      "valorTotal": 430147,
+      "id": "SQGrcJE"
+    },
+    {
+      "clienteId": "7837f1aa-3a5d-4864-a647-3359a1b9fb5d",
+      "descripcion": "41234123",
+      "estado": "Pendiente",
+      "numero": "3",
+      "productos": [
+        {
+          "id": "0cb05810-8fbf-422e-8812-dfae728bc20a",
+          "precio": 146472,
+          "producto": "GEOFORM",
+          "descripcion": "apple"
+        },
+        {
+          "id": "192b7b00-fbf9-4fbf-8b06-3d8850296905",
+          "precio": 283675,
+          "producto": "GUSHKOOL",
+          "descripcion": "strawberry"
+        }
+      ],
+      "valorTotal": 430147,
+      "id": "biHfvrH"
     }
   ],
   "productos": [

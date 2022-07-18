@@ -28,4 +28,8 @@ export class CuentasCobroService {
     let url = BACKEND_URL.concat(ApiUrl.obtenerClientes).concat("/",idCliente,"/",ApiUrl.cuentasCobro)
     return this.http.get<CuentaCobroDTO[]>(url,httpOptions)
   }
+  eliminarCuentaCobro(cuenta: CuentaCobroDTO){
+    let url = BACKEND_URL.concat(ApiUrl.cuentasCobro).concat("/",cuenta.id)
+    return this.http.delete<any>(url,httpOptions)
+  }
 }
